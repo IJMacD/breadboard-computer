@@ -1,5 +1,5 @@
 {
-  "name": "blank-react-project",
+  "name": "Breadboard Computer",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IJMacD/blank-react-project.git"
+    "url": "git+https://github.com/IJMacD/breadboard-computer.git"
   },
   "author": "Iain MacDonald",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IJMacD/blank-react-project/issues"
+    "url": "https://github.com/IJMacD/breadboard-computer/issues"
   },
-  "homepage": "https://github.com/IJMacD/blank-react-project#readme",
+  "homepage": "https://github.com/IJMacD/breadboard-computer#readme",
   "dependencies": {
     "react": "^15.5.3",
     "react-dom": "^15.5.3"
