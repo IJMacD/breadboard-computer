@@ -23207,6 +23207,7 @@ var Clock = function (_Component) {
     };
 
     _this.init = _this.init.bind(_this);
+    _this.setHigh = _this.setHigh.bind(_this);
     _this.flip = _this.flip.bind(_this);
     _this.toggleAuto = _this.toggleAuto.bind(_this);
     return _this;
@@ -23245,10 +23246,15 @@ var Clock = function (_Component) {
   }, {
     key: "flip",
     value: function flip() {
+      var high = !this.state.high;
+
+      this.setHigh(high);
+    }
+  }, {
+    key: "setHigh",
+    value: function setHigh(high) {
       var onTick = this.props.onTick;
 
-
-      var high = !this.state.high;
 
       this.setState({ high: high });
 
@@ -23261,11 +23267,13 @@ var Clock = function (_Component) {
     value: function toggleAuto() {
       var auto = !this.state.auto;
 
-      this.setState({ auto: auto });
+      this.setState({ auto: auto, high: false });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _state2 = this.state,
           high = _state2.high,
           auto = _state2.auto;
@@ -23281,7 +23289,11 @@ var Clock = function (_Component) {
         ),
         _react2.default.createElement(
           "button",
-          { className: "btn btn-primary m-1", disabled: auto, onClick: this.flip },
+          { className: "btn btn-primary m-1", disabled: auto, onMouseDown: function onMouseDown() {
+              return _this2.setHigh(true);
+            }, onMouseUp: function onMouseUp() {
+              return _this2.setHigh(false);
+            } },
           "Step"
         ),
         _react2.default.createElement(_LED2.default, { on: high, color: "#0000FF" })

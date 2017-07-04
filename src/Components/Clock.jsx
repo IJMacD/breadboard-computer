@@ -14,6 +14,7 @@ export default class Clock extends Component {
     };
 
     this.init = this.init.bind(this);
+    this.setHigh = this.setHigh.bind(this);
     this.flip = this.flip.bind(this);
     this.toggleAuto = this.toggleAuto.bind(this);
   }
@@ -41,9 +42,13 @@ export default class Clock extends Component {
   }
 
   flip () {
-    const { onTick } = this.props;
-
     const high = !this.state.high;
+
+    this.setHigh(high);
+  }
+
+  setHigh (high) {
+    const { onTick } = this.props;
 
     this.setState({ high });
 
@@ -55,7 +60,7 @@ export default class Clock extends Component {
   toggleAuto () {
     const auto = !this.state.auto;
 
-    this.setState({ auto });
+    this.setState({ auto, high: false });
   }
 
   render () {
@@ -64,7 +69,7 @@ export default class Clock extends Component {
     return (
       <div>
         <button className={"btn btn-primary m-1 " + (auto ? "active" : "")} onClick={this.toggleAuto}>Auto</button>
-        <button className="btn btn-primary m-1" disabled={auto} onClick={this.flip}>Step</button>
+        <button className="btn btn-primary m-1" disabled={auto} onMouseDown={()=>this.setHigh(true)} onMouseUp={()=>this.setHigh(false)}>Step</button>
         <LED on={high} color="#0000FF" />
       </div>
     );
