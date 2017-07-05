@@ -10,7 +10,7 @@ export default function LED (props) {
     margin: "0 auto",
     border: on ?
       "2px solid rgba(0,0,0,0.2)" :
-      "2px solid rgba(0,0,0,0.6)",
+      "2px solid rgba(0,0,0,1)",
 
     background: color,
   };
@@ -21,7 +21,7 @@ export default function LED (props) {
     borderRadius: "50%",
     background: on ?
       "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.2))" :
-      "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))",
+      "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,1))",
   };
 
   return <div style={style}><div style={innerStyle} /></div>;
